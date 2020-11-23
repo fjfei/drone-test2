@@ -1,0 +1,13 @@
+---
+kind: pipeline
+type: docker
+name: drone-test
+
+node:
+  runner:run2
+
+steps:
+- name: test
+  image: alpine
+  commands:
+  - echo "It worked!"
