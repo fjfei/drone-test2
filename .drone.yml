@@ -1,6 +1,7 @@
-name: drone-test
+---
 kind: pipeline
 type: docker
+name: drone-test
 
 node:
   runner:run2
