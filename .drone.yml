@@ -3,7 +3,7 @@ kind: pipeline
 type: docker
 
 node:
-  run2
+  runner:run2
 
 steps:
 - name: test
