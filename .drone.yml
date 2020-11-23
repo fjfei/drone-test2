@@ -2,6 +2,9 @@ name: drone-test
 kind: pipeline
 type: docker
 
+node:
+  run2
+
 steps:
 - name: test
   image: alpine
