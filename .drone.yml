@@ -12,29 +12,3 @@ steps:
         # 当tag 事件触发后，drone 会默认将 tag 名字写入到环境变量DRONE_TAG中，更多默认的环境变量请查看文档：https://docs.drone.io/pipeline/environment/reference/
         # 将当前的 tag 名称输出到.tags文件中，如果tag 名不存在那么输出latest 到 .tags文件中
       - /bin/bash -c '[ -z $DRONE_TAG ] && echo "latest" > .tags || echo $DRONE_TAG > .tags'
-
-  # build api
-  - name: api-build
-    image: node:12.18.1
-    network_mode: host
-    depends_on: [tag]
-    volumes:
-      - name: cache_api_node
-        path: /drone/src/api/node_modules
-    commands:
-      - cd ./api/
-      - npm install --registry http://mirrors.cloud.tencent.com/npm
-      - npm run build
-
-  # build web
-  - name: web-build
-    image: node:12.18.1
-    network_mode: host
-    depends_on: [tag]
-    volumes:
-      - name: cache_web_app_node
-        path: /drone/src/web/app/node_modules
-    commands:
-      - cd ./web/app
-      - npm install --registry http://mirrors.cloud.tencent.com/npm
-      - npm run build
