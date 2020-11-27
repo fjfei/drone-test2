@@ -5,9 +5,7 @@ name: go-run-test
 steps:
   # get tag
   - name: tag
-    image: bashell/alpine-bash:latest
-    network_mode: host
-    depends_on: [clone]
+    image: alpine
     commands:
         # 当tag 事件触发后，drone 会默认将 tag 名字写入到环境变量DRONE_TAG中，更多默认的环境变量请查看文档：https://docs.drone.io/pipeline/environment/reference/
         # 将当前的 tag 名称输出到.tags文件中，如果tag 名不存在那么输出latest 到 .tags文件中
