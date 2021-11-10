@@ -3,8 +3,8 @@ type: docker
 name: go-run-test
 
 platform:
-    os: linux
-   arch: arm64
+  os: linux
+  arch: arm64
 
 steps:
   # get tag
