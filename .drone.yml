@@ -6,6 +6,12 @@ platform:
   os: linux
   arch: arm64
 
+clone:
+  git:
+#    image: plugins/git
+#	   recursive: true
+    skip_verify: true
+    
 steps:
   # get tag
   - name: tag
